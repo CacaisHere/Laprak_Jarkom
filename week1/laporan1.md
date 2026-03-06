@@ -1,10 +1,8 @@
-# penjelasan 
-Pastikan tools berikut telah terinstall di komputer lab masing-masing: 
-1. Wireshark
-Jika belum terinstall dapat di download pada link berikut http://www.wireshark.org/
-2. Python
-Jika belum terinstall dapat di download pada link berikut https://www.python.org/downloads/
+# Running Modul 
+Pastikan Wireshark sudah terinstall di komputer. Jika belum terinstall dapat di download pada link berikut http://www.wireshark.org/
 
-# selesai download wireshark
-jika sudah selesai lakukan instalasi wireshark
-![1](assets/image/1.png)
+### Instalasi Wireshark
+jika sudah selesai mendownload selanjutnya lakukan instalasi wireshark
+
+![instalasi wireshark](assets/image/1.png)
+![instalasi wireshark](assets/image/2.png)
