@@ -25,7 +25,6 @@ tunggu proses instalasi selesai
 
 jika sudah anda bisa menggunakan wireshark sekarang.
 
-<<<<<<< HEAD
 ### Apa itu Wireshark 
 Wireshark merupakan perangkat lunak network protocol analyzer yang digunakan untuk menangkap dan menganalisis paket data yang melewati suatu jaringan komputer. Wireshark memungkinkan pengguna melihat secara rinci informasi lalu lintas jaringan seperti alamat IP, protokol yang digunakan, ukuran paket, serta proses komunikasi antar perangkat dalam jaringan.
  
@@ -40,7 +39,7 @@ Untuk memulai proses penangkapan paket, lakukan klik dua kali pada Wifi tersebut
 
 Ketika Wireshark sedang berjalan, klik link ini http://gaia.cs.umass.edu/wiresharklabs/INTRO-wireshark-file1.html
 
-Untuk menampilkan halaman tersebut, browser akan menghubungi server HTTP yang berada di gaia.cs.umass.edu dan melakukan pertukaran pesan HTTP dengan server tersebut untuk mengunduh halaman web yang diminta.
+Untuk menampilkan h alaman tersebut, browser akan menghubungi server HTTP yang berada di gaia.cs.umass.edu dan melakukan pertukaran pesan HTTP dengan server tersebut untuk mengunduh halaman web yang diminta.
 
 Frame Ethernet atau Wi-Fi yang membawa pesan HTTP tersebut, serta semua frame lain yang melewati adaptor jaringan Ethernet atau Wi-Fi, akan ditangkap oleh Wireshark selama proses pengambilan paket berlangsung.
 ![tampilan web HTTP](assets/image/web.png)
