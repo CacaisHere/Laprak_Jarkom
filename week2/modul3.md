@@ -8,8 +8,8 @@ Untuk memulai eksplorasi terhadap protokol HTTP, pertama bisa mengakses sebuah f
 1. Membuka web browser yang akan digunakan untuk mengakses halaman web.
 2. Mengakses alamat berikut melalui browser: http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file1.html. ingat harus berupa HTTP nanti akan muncul seperti gambar dibawah ini.
 
-![1](assets/image/2.png)
+![1](assets/2.png)
 
 3. Setelah halaman berhasil ditampilkan, proses pengambilan paket pada Wireshark dihentikan.
 
-![1](assets/image/1.png)
+![1](assets/1.png)
