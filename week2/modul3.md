@@ -48,3 +48,18 @@ Selanjutnya mencoba proses pengambilan file HTML yang memiliki objek tertanam (e
 Berdasarkan hasil pengamatan gambar diatas dapat disimpulkan bahwa ketika sebuah halaman HTML memiliki objek yang disematkan (embedded objects) seperti gambar, browser tidak hanya mengambil file HTML utama saja. Browser juga akan mengirimkan request HTTP tambahan untuk setiap objek yang direferensikan dalam halaman tersebut.Setiap objek tersebut diambil melalui HTTP GET request yang terpisah dan server akan memberikan HTTP response sesuai dengan jenis file yang diminta.Lalu melakukan inspect pada halaman browser untuk mengetahui sumber dari gambar yang dimuat dalam halaman tersebut
 
 ## HTTP Authentication
+Selanjutnya akan mencoba mengamati pertukaran pesan HTTP pada halaman yang dilindungi kata sandi menggunakan Wireshark.
+
+1. Langkah pertama adalah menjalankan browser web dan memastikan cache serta history telah dibersihkan. Setelah itu, proses packet capture dimulai menggunakan Wireshark.
+
+2. Selanjutnya, mengakses URL http://gaia.cs.umass.edu/wireshark-labs/protected_pages/HTTP-wireshark-file5.html. Ketika halaman diakses, browser akan menampilkan pop-up autentikasi yang meminta username dan password. Pengguna kemudian memasukkan username: wiresharkstudents dan password: network sesuai dengan yang telah ditentukan.
+
+![Authentication](assets/9.png)
+3. Setelah halaman berhasil diakses, proses penangkapan paket pada Wireshark dihentikan. Kemudian pada kolom display filter dimasukkan kata http agar hanya paket HTTP yang ditampilkan pada daftar paket.
+![Authentication](assets/10.png)
+
+...
+
+## Bahaya HTTP
+
+## Kesimpulan
