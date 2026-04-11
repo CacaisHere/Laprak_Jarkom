@@ -60,28 +60,28 @@ ________________________________________________________________________________
 
 1. Apa port tujuan pada pesan permintaan DNS? Apa port sumber pada pesan balasan DNS?
 ![alt text](asset/1.3.png)
->jawab :
+>jawab :Port tujuan pada pesan permintaan adalah 53 dan untuk port sumber pada pesan balasannya sama 53.
 
 2. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut
 merupakan default alamat IP server DNS lokal Anda?
 ![alt text](asset/1.3.png)
->jawab: 
+>jawab: ke port 53. ya, itu adalah DNS server lokal default di jaringan saya
 _______________________________________________________________________________________________________________
 3. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan
 tersebut mengandung ”jawaban” atau ”answers”?
 ![alt text](asset/9.png)
->jawab :
+>jawab :Typenya A (IPv4 Address). Mengandung jawaban? Tidak, karena ini masih query, bukan response.
 _______________________________________________________________________________________________________________
 4. Periksa pesan balasan DNS. Berapa banyak ”jawaban” atau “answers” yang terdapat di
 dalamnya. Apa saja isi yang terkandung dalam setiap jawaban tersebut?
 ![alt text](asset/1.4.png)
->jawab: 
+>jawab:pesan tersebut mengandung jawaban (answer) karena pada detail paket terlihat Answers RRs: 1, yang menunjukkan bahwa respons DNS sudah berisi alamat IP hasil permintaan.
 _______________________________________________________________________________________________________________
 ### nslookup –type=NS mit.edu
 1. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut
 merupakan default alamat IP server DNS lokal Anda?
 ![alt text](asset/1.5.png)
->jawab :
+>jawab :dari tangkapan layar Wireshark, permintaan DNS dikirim ke 10.217.77.77. Alamat ini merupakan DNS server lokal/default yang digunakan host (terlihat dari kolom Destination pada paket DNS).
 _______________________________________________________________________________________________________________
 2. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan
 tersebut mengandung ”jawaban” atau ”answers”?
