@@ -86,29 +86,28 @@ ________________________________________________________________________________
 2. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan
 tersebut mengandung ”jawaban” atau ”answers”?
 ![alt text](asset/9.png)
->jawab :
+>jawab :Jenis (Type) pesan: NS (Name Server), karena perintah yang dijalankan adalah nslookup -type=NS mit.edu. Pesan permintaan tidak mengandung answers (pada bagian Answers = 0) karena ini adalah query, bukan response. Jawaban akan muncul di paket balasan dari server DNS.
 _______________________________________________________________________________________________________________
 3. Periksa pesan balasan DNS. Apa nama server MIT yang diberikan oleh pesan balasan?
 Apakah pesan balasan ini juga memberikan alamat IP untuk server MIT tersebut?
 ![alt text](asset/1.6.png)
->jawab :
-
+>jawab :Ya. Pada bagian Additional Records, respons juga menyertakan alamat IP untuk server-server tersebut (misalnya untuk BITSY.MIT.EDU terlihat alamat IP-nya).
 _______________________________________________________________________________________________________________
 ### nslookup www.aiit.or.kr bitsy.mit.edu
 1. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut
 merupakan default alamat IP server DNS lokal Anda?
 ![alt text](asset/1.7.png)
->jawab :
-
+>jawab : Ke alamat DNS server lokal/default yang digunakan oleh komputer (ditunjukkan sebagai tujuan pada paket DNS).
 _______________________________________________________________________________________________________________
 2. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan
 tersebut mengandung ”jawaban” atau ”answers”?
->jawab :
-
+>jawab :Jenis pesan DNS tersebut adalah NS (Name Server). Pesan tersebut tidak mengandung jawaban (answers) karena merupakan pesan permintaan (query), sehingga bagian Answers masih bernilai 0.
 _______________________________________________________________________________________________________________
 3. Periksa pesan balasan DNS. Berapa banyak ”jawaban” atau “answers” yang terdapat di
 dalamnya. Apa saja isi yang terkandung dalam setiap jawaban tersebut?
 ![alt text](asset/1.8.png)
->jawab :
+>jawab :Jumlah answers adalah 2. Isi masing-masing:
+>A record → www.aiit.or.kr → 172.67.152.120
+>A record → www.aiit.or.kr → 104.21.74.8
 
 _______________________________________________________________________________________________________________
