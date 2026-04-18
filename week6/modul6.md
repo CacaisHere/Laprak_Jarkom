@@ -30,7 +30,7 @@ ________________________________________________________________________________
 3. Berapa nomor urut segmen TCP yang berisi perintah HTTP POST? Perhatikan bahwa untuk
 menemukan perintah POST, Anda harus menelusuri content field milik paket di bagian
 bawah jendela Wireshark, kemudian cari segmen yang berisi "POST" di bagian field DATAnya.
-![soal1](asset/)
+![soal1](asset/SOAL3.png)
 >jawab :
 
 _____________________________________________________________________________________________________________________
@@ -44,13 +44,11 @@ fitur yang memungkinkan Anda untuk memplot RTT untuk setiap segmen TCP yang diki
 Pilih segmen TCP yang dikirim dari klien ke server gaia.cs.umass.edu pada jendela "daftar paket yang ditangkap". Kemudian pilih: Statistics->TCP Stream Graph- >Round Trip Time
 Graph).
 ![soal1](asset/soal4.png)
->jawab :
-
+>jawab :Berdasarkan grafik Round Trip Time (RTT), waktu RTT untuk enam segmen tersebut relatif stabil, yaitu sekitar ±100–250 ms. Variasi RTT terjadi karena delay jaringan dan waktu pemrosesan di sisi penerima.
 _____________________________________________________________________________________________________________________
 5. Berapa panjang setiap enam segmen TCP pertama?
 ![soal1](asset/soal5.png)
->jawab :
-
+>jawab :panjang setiap segmen TCP pertama umumnya sebesar ±1460 byte (payload), yang merupakan nilai Maximum Segment Size (MSS) pada jaringan Ethernet.
 _____________________________________________________________________________________________________________________
 6. Berapa jumlah minimum ruang buffer tersedia yang disarankan kepada penerima dan
 diterima untuk seluruh trace? Apakah kurangnya ruang buffer penerima pernah
@@ -73,7 +71,7 @@ ________________________________________________________________________________
 9. Berapa throughput (byte yang ditransfer per satuan waktu) untuk sambungan TCP?
 Jelaskan bagaimana Anda menghitung nilai ini.
 ![soal1](asset/soal9.png)
->jawab :
+>jawab :Throughput adalah jumlah data yang berhasil ditransfer per satuan waktu. Berdasarkan grafik, nilai throughput TCP berada pada kisaran ±1.3–1.5 Mbps saat kondisi stabil. Nilai ini menunjukkan kecepatan efektif transfer data setelah koneksi TCP melewati fase awal.
 
 _____________________________________________________________________________________________________________________
 ## Jawalah beberapa pertanyaan berikut menggunakan segmen TCP pada trace paket tcp-etherealtrace-1 di http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip .
@@ -84,5 +82,5 @@ Dapatkah Anda mengidentifikasi di mana fase “slow start” TCP dimulai dan ber
 pada bagian mana algoritma ”congestion avoidance” mengambil alih? Berikan komentar
 tentang bagaimana data yang diukur berbeda dari perilaku ideal TCP yang telah kita pelajari.
 ![soal1](asset/6.5.png)
->jawab :
-    
+>jawab :Grafik ini menunjukkan hubungan antara waktu dan sequence number untuk melihat perilaku TCP.
+Di awal koneksi terjadi slow start, ditandai dengan kenaikan cepat (eksponensial). Setelah itu, TCP masuk ke fase congestion avoidance, yang terlihat dari kenaikan linear yang lebih stabil.
