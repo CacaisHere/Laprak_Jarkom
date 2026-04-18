@@ -6,30 +6,26 @@ mentransfer file ke gaia.cs.umass.edu? Cara paling mudah menjawab pertanyaan ini
 dengan memilih sebuah pesan HTTP dan meneliti detail paket TCP yang digunakan untuk
 membawa pesan HTTP tersebut.
 ![soal1](asset/jawab1.png)
->jawab :
-
+>jawab : Alamat IP klien (sumber): 10.218.8.69 dan Nomor port TCP klien: 61799
 _____________________________________________________________________________________________________________________
 2. Apa alamat IP dari gaia.cs.umass.edu? Pada nomor port berapa ia mengirim dan menerima
 segmen TCP untuk koneksi ini?
 ![soal1](asset/jawab2.png)
->jawab :
-
+>jawab :Alamat IP dari gaia.cs.umass.edu yang terlihat pada hasil capture Wireshark adalah 128.119.245.12. Dalam koneksi TCP yang digunakan untuk komunikasi ini, server gaia.cs.umass.edu menggunakan port 80, yaitu port standar untuk layanan HTTP. Selama proses komunikasi berlangsung, server tersebut mengirimkan segmen TCP dari port 80 menuju port klien (port sementara/ephemeral), dan juga menerima segmen TCP pada port 80 dari klien. Hal ini menunjukkan bahwa server berperan sebagai penyedia layanan web, sedangkan klien menggunakan port acak untuk membangun koneksi ke server.
 _____________________________________________________________________________________________________________________
 ## Dasar TCP : Jawablah beberapa pertanyaan berikut untuk segmen TCP:
 1. Berapa nomor urut segmen TCP SYN yang digunakan untuk memulai sambungan TCP antara
 komputer klien dan gaia.cs.umass.edu? Apa yang dimiliki segmen tersebut sehingga
 teridentifikasi sebagai segmen SYN?
 ![soal1](asset/soal1.png)
->jawab :
-
+>jawab :Nomor urut (Sequence Number) = 0 (relative).Teridentifikasi sebagai SYN karena flag SYN = 1 dan flag lain = 0.
 _____________________________________________________________________________________________________________________
 2. Berapa nomor urut segmen SYNACK yang dikirim oleh gaia.cs.umass.edu ke komputer klien
 sebagai balasan dari SYN? Berapa nilai dari field Acknowledgement pada segmen SYNACK?
 Bagaimana gaia.cs.umass.edu menentukan nilai tersebut? Apa yang dimiliki oleh segmen
 sehingga teridentifikasi sebagai segmen SYNACK?
 ![soal1](asset/soal2.png)
->jawab :
-
+>jawab :Nomor urut (Sequence Number) = 0 (relative). Acknowledgement Number = 1 (hasil dari Seq SYN klien + 1). Teridentifikasi sebagai SYN-ACK karena flag SYN = 1 dan ACK = 1.
 _____________________________________________________________________________________________________________________
 3. Berapa nomor urut segmen TCP yang berisi perintah HTTP POST? Perhatikan bahwa untuk
 menemukan perintah POST, Anda harus menelusuri content field milik paket di bagian
@@ -60,19 +56,18 @@ ________________________________________________________________________________
 diterima untuk seluruh trace? Apakah kurangnya ruang buffer penerima pernah
 menghambat pengiriman?
 ![soal1](asset/soal6.png)
->jawab :
+>jawab :Nilai minimum buffer yang diiklankan (Window Size) sekitar 5840 byte.
 
 _____________________________________________________________________________________________________________________
 7. Apakah ada segmen yang ditransmisikan ulang dalam file trace? Apa yang anda periksa (di
 dalam file trace) untuk menjawab pertanyaan ini?
 ![soal1](asset/soal7.png)
->jawab :
-
+>jawab :Berdasarkan hasil pengamatan pada file trace menggunakan Wireshark, tidak ditemukan adanya segmen TCP yang ditransmisikan ulang (retransmission). Hal ini ditunjukkan dengan tidak adanya penanda seperti “TCP Retransmission” pada kolom informasi.
 _____________________________________________________________________________________________________________________
 8. Berapa banyak data yang biasanya diakui oleh penerima dalam ACK? Dapatkah anda
 mengidentifikasi kasus-kasus di mana penerima melakukan ACK untuk setiap segmen yang
 diterima?![soal1](asset/soal8.png)
->jawab :
+>jawab :ACK pada TCP bersifat kumulatif, artinya setiap ACK menyatakan bahwa semua data hingga byte tertentu sudah diterima dengan benar.Pada trace, nilai ACK terus meningkat secara berurutan, sehingga dapat disimpulkan bahwa semua data diterima dengan baik, berurutan, dan tidak ada data yang hilang atau diterima tidak lengkap.
 
 _____________________________________________________________________________________________________________________
 9. Berapa throughput (byte yang ditransfer per satuan waktu) untuk sambungan TCP?
