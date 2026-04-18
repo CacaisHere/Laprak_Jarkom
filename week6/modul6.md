@@ -83,13 +83,6 @@ berbanding waktu dari segmen yang dikirim oleh klien ke server gaia.cs.umass.edu
 Dapatkah Anda mengidentifikasi di mana fase “slow start” TCP dimulai dan berakhir, dan
 pada bagian mana algoritma ”congestion avoidance” mengambil alih? Berikan komentar
 tentang bagaimana data yang diukur berbeda dari perilaku ideal TCP yang telah kita pelajari.
-![soal1](asset/soal9.png)
+![soal1](asset/6.5.png)
 >jawab :
-
-_____________________________________________________________________________________________________________________
-2. Jawablah kedua pertanyaan di atas untuk trace yang Anda dapatkan ketika Anda
-mengirimkan file dari komputer ke gaia.cs.umass.edu.
-![soal1](asset/soal9.png)
->jawab :
-
-_____________________________________________________________________________________________________________________
+    
