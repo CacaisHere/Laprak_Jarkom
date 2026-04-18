@@ -31,7 +31,7 @@ ________________________________________________________________________________
 menemukan perintah POST, Anda harus menelusuri content field milik paket di bagian
 bawah jendela Wireshark, kemudian cari segmen yang berisi "POST" di bagian field DATAnya.
 ![soal1](asset/SOAL3.png)
->jawab :
+>jawab :Berdasarkan tampilan Wireshark pada gambar, paket yang mengandung perintah HTTP POST terlihat pada kolom “No.” = 199.Pada detail paket bagian TCP, terlihat bahwa Sequence Number (relative) = 1. Sehingga, nomor urut (sequence number) segmen TCP yang berisi HTTP POST adalah 1 (relative sequence number).
 
 _____________________________________________________________________________________________________________________
 4. Anggap segmen TCP yang berisi HTTP POST sebagai segmen pertama dalam koneksi TCP.
