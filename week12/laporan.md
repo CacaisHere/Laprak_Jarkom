@@ -1,5 +1,5 @@
 # LAPORAN PRAKTIKUM MODUL 12
-### ICMP dan Ping
+## ICMP dan Ping
 ICMP adalah protokol jaringan yang berfungsi untuk kontrol dan pelaporan kesalahan dalam komunikasi data. Salah satu implementasi ICMP adalah PING, yaitu alat untuk mengecek koneksi dan respon jaringan antar perangkat.PING bekerja dengan mengirim pesan ICMP Echo Request dan menerima Echo Reply dari tujuan. Karena itu, ICMP dan PING sangat penting dalam administrasi serta troubleshooting jaringan komputer.
 
 ### Implementasi ICMP dan Ping
