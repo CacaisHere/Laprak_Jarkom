@@ -21,13 +21,13 @@ while True:
         # ambil nama file yang diminta
         filename = message.split()[1]
         # buka file yang diminta
-        f = open(filename[1:])
+        f = open(filename[1:]) 
         outputdata = f.read()#membaca isi file yang telah dibuka dan menyimpannya dalam variabel outputdata. Isi file ini nantinya akan dikirim kembali ke client sebagai respons HTTP.
 
         # mengirimkan HTTP response header
         connectionSocket.send("HTTP/1.1 200 OK\r\n".encode())#mengirimkan respon http ke browser
         connectionSocket.send("Content-Type: text/html\r\n\r\n".encode())#mengirimkan header HTTP tambahan yang menunjukkan jenis konten 
-
+    
         # mengirimkan isi file ke client    
         for i in range(len(outputdata)):
             connectionSocket.send(outputdata[i].encode())
