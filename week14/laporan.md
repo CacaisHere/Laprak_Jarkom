@@ -1,5 +1,5 @@
 # Laporan Praktikum Modul 14
-# Apa itu WIFI??
+## Apa itu WIFI??
 Wi-Fi (Wireless Fidelity) adalah teknologi jaringan nirkabel yang memanfaatkan gelombang radio agar perangkat seperti komputer, smartphone, laptop, hingga perangkat pintar lainnya bisa saling terhubung ke internet atau saling bertukar data tanpa perlu menggunakan kabel fisik. Secara teknis, Wi-Fi bekerja berdasarkan standar protokol IEEE 802.11 yang dirancang oleh Institute of Electrical and Electronics Engineers.
 
 ## Starting
