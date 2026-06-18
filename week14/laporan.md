@@ -1,4 +1,7 @@
 # Laporan Praktikum Modul 14
+# Apa itu WIFI??
+Wi-Fi (Wireless Fidelity) adalah teknologi jaringan nirkabel yang memanfaatkan gelombang radio agar perangkat seperti komputer, smartphone, laptop, hingga perangkat pintar lainnya bisa saling terhubung ke internet atau saling bertukar data tanpa perlu menggunakan kabel fisik. Secara teknis, Wi-Fi bekerja berdasarkan standar protokol IEEE 802.11 yang dirancang oleh Institute of Electrical and Electronics Engineers.
+
 ## Starting
 Langkah pertama adalah mengunduh file ZIP dari tautan http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip dan mengekstrak file Wireshark_802_11.pcap. Setelah itu, saya membuka file tersebut menggunakan aplikasi Wireshark.
 ![WIFI](aset/2.png)
@@ -18,4 +21,12 @@ Paket 480 (HTTP GET) dipilih untuk dianalisis lebih detail pada panel bagian baw
 ## Association/Disassociation
 Setelah memindai jaringan melalui Beacon Frame, proses berikutnya yang terjadi adalah Association, yaitu tahap di mana perangkat klien (host) mengajukan permintaan izin untuk bergabung dengan suatu Access Point (AP). Sebaliknya, terdapat pula proses Disassociation yang merupakan tahap pemutusan hubungan komunikasi antara perangkat klien dan AP tersebut. Di dalam protokol IEEE 802.11, interaksi ini dijembatani oleh Management Frame khusus yang disebut Association Request dan Association Response.
 
-Untuk memfilter dan mengisolasi paket data agar hanya menampilkan proses pengajuan koneksi (Association Request), perintah filter yang dimasukkan pada kolom pencarian Wireshark adalah ```wlan.fc.type == 0 && wlan.fc.subtype == 1```
+Untuk memfilter dan mengisolasi paket data agar hanya menampilkan proses pengajuan koneksi (Association Request), perintah filter yang dimasukkan pada kolom pencarian Wireshark adalah ```wlan.fc.type == 0 && wlan.fc.subtype == 1``` seperti gambar dibawah ini : 
+![WIFI](aset/5.png)
+Type/Subtype terbaca sebagai Association Response (0x0001), yang menunjukkan bahwa filter bekerja dengan akurat dan paket ini memang berisi konfirmasi izin masuk ke jaringan. * Receiver dan Destination Address ditujukan ke 00:13:02:d1:b6:4f (Intel_d1:b6:4f), yaitu alamat MAC milik perangkat klien Intel yang sebelumnya mengajukan request. Transmitter dan Source Address berasal dari 00:16:b6:f7:1d:51 (CiscoLinksys_f7:1d:51), yang merupakan alamat MAC dari Access Point Cisco Linksys.
+dan paket balasan ini memiliki nomor urut (sequence number) 3728.
+
+## Kesimpulan
+Berdasarkan analisis file pcap menggunakan Wireshark, seluruh tahapan komunikasi jaringan nirkabel (IEEE 802.11) berhasil diamati secara berurutan. Proses diawali dengan tahap discovery, di mana perangkat menangkap Beacon Frame (wlan.fc.type_subtype == 8) yang disiarkan secara broadcast oleh beberapa Access Point seperti jaringan "30 Munroe St" dan "linksys12". Setelah itu, terjadi proses koneksi yang ditunjukkan oleh penemuan satu paket Association Response (wlan.fc.type == 0 && wlan.fc.subtype == 1) dari AP Cisco Linksys kepada klien Intel sebagai tanda bahwa izin bergabung ke jaringan telah disetujui.
+
+Terakhir, pada tahap data transfer yang difilter melalui tcp.port == 80, terekam aktivitas klien saat melakukan HTTP Request (GET) untuk mengunduh file alice.txt dari server luar. Dalam proses transfer data ini, ditemukan juga paket error berupa Duplicate ACK dan Retransmission yang mengindikasikan adanya ketidakstabilan transmisi atau paket hilang pada jaringan nirkabel tersebut.
