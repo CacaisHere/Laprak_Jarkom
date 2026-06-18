@@ -1,0 +1,21 @@
+# Laporan Praktikum Modul 14
+## Starting
+Langkah pertama adalah mengunduh file ZIP dari tautan http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip dan mengekstrak file Wireshark_802_11.pcap. Setelah itu, saya membuka file tersebut menggunakan aplikasi Wireshark.
+![WIFI](2.png)
+##  Beacon Frames
+Beacon frame adalah jenis frame manajemen pada protokol IEEE 802.11 yang rutin dikirim oleh Access Point (AP) agar keberadaan jaringannya terdeteksi oleh perangkat di sekitar. Di dalam frame ini, terdapat informasi penting seperti SSID, channel yang digunakan, serta spesifikasi jaringan lainnya yang dibutuhkan perangkat sebelum terhubung. Untuk menyaring tampilan dan hanya memunculkan Beacon frame di Wireshark, gunakan perintah filter 
+```wlan.fc.type_subtype == 8```  seperti gambar dibawah ini
+![WIFI](3.png)
+Setelah filter tersebut diterapkan, Wireshark menyaring seluruh lalu lintas jaringan yang terekam dan hanya menampilkan paket yang bertipe Beacon Frame (frame manajemen 802.11). Dari total 2364 paket yang ada di dalam berkas, terdapat 762 paket (sekitar 32.2%) yang terdeteksi sebagai Beacon. Pada bagian Packet List Pane (panel daftar paket), terlihat bahwa semua Beacon Frame dikirim secara broadcast ke alamat tujuan ff:ff:ff:ff:ff:ff. Hal ini dikarenakan fungsi dari Beacon itu sendiri adalah menyiarkan informasi ke seluruh perangkat di sekitarnya secara berkala. Melalui daftar tersebut, teridentifikasi beberapa Access Point (AP) aktif yang sedang beroperasi, yang ditunjukkan oleh variasi nilai SSID seperti jaringan bernama "30 Munroe St", "linksys12", serta beberapa SSID tersembunyi/acak dalam format heksadesimal. Mayoritas paket memiliki nilai Beacon Interval (BI) sebesar 100, yang menandakan bahwa AP memancarkan sinyal ini setiap 100 Time Units (atau sekitar 102,4 milidetik).
+
+Pada gambar diatas terlihat bahwa type/subtype terbaca sebagai Beacon frame (0x0008), yang membuktikan bahwa filter yang dimasukkan sudah bekerja dengan tepat. Alamat MACnya yaitu perangkat yang memancarkan Wi-Fi "30 Munroe St" teridentifikasi milik perangkat Cisco Linksys dengan MAC Address asal (Source/BSS Id) 00:16:b6:f7:1d:51. Dan suequence number paket pertama ini terekam memiliki nomor urut 2854.
+
+##  Data Transfer
+Setelah perangkat berhasil melewati tahap asosiasi dan terhubung ke Access Point (AP), proses selanjutnya adalah pengiriman dan penerimaan data (Data Transfer). Pada tahap ini, berbagai macam informasi seperti request halaman web, file, hingga data aplikasi dikirimkan antar perangkat melalui media nirkabel. Untuk memfokuskan analisis pada aktivitas data transfer ini—khususnya pada lalu lintas data berbasis protokol HTTP—perintah filter yaitu ```tcp.port == 80``` seperti gambar dibawah ini :
+![WIFI](4.png)
+Paket 480 (HTTP GET) dipilih untuk dianalisis lebih detail pada panel bagian bawah, ditemukan informasi teknis tambahan pada layer nirkabelnya kalau paket data ini dibungkus menggunakan protokol IEEE 802.11 QoS Data, yang artinya pengiriman data transfer ini sudah mendukung fitur prioritas kualitas layanan (Quality of Service). Alamat Fisik (MAC Address): Transmisi data ini dikirim oleh perangkat klien (Transmitter/Source) dengan MAC Address milik kartu jaringan Intel yaitu 00:13:02:d1:b6:4f (Intel_d1:b6:4f), lalu diteruskan menuju Access Point tujuan (Destination) Cisco Linksys dengan MAC Address 00:16:b6:f4:eb:a8.
+
+## Association/Disassociation
+Setelah memindai jaringan melalui Beacon Frame, proses berikutnya yang terjadi adalah Association, yaitu tahap di mana perangkat klien (host) mengajukan permintaan izin untuk bergabung dengan suatu Access Point (AP). Sebaliknya, terdapat pula proses Disassociation yang merupakan tahap pemutusan hubungan komunikasi antara perangkat klien dan AP tersebut. Di dalam protokol IEEE 802.11, interaksi ini dijembatani oleh Management Frame khusus yang disebut Association Request dan Association Response.
+
+Untuk memfilter dan mengisolasi paket data agar hanya menampilkan proses pengajuan koneksi (Association Request), perintah filter yang dimasukkan pada kolom pencarian Wireshark adalah ```wlan.fc.type == 0 && wlan.fc.subtype == 1```
