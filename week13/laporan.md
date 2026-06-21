@@ -17,10 +17,17 @@ ARP Caching (atau sering disebut ARP Table/ARP Cache) adalah sebuah mekanisme pe
 1. Pembersihan Cache ARP:
 * Sistem Operasi Windows (MS-DOS): Jalankan perintah arp -d * untuk menghapus seluruh entri yang tersimpan di dalam tabel ARP (tanda * berfungsi sebagai wildcard).
 * Sistem Operasi Linux/Unix/MacOS: Eksekusi perintah arp -d * dengan memastikan Anda memiliki hak akses administrator (root).
+![soal1](3.png)
 2. Inisiasi Pengamatan ARP: 
 * Pastikan cache pada browser telah dibersihkan sepenuhnya, lalu jalankan aplikasi Wireshark untuk memulai perekaman aktivitas jaringan.
 * Akses URL berikut melalui browser Anda: [http://gaia.cs.umass.edu/wireshark-labs/HTTP-ethereal-lab-file3.html](http://gaia.cs.umass.edu/wireshark-labs/HTTP-ethereal-lab-file3.html).
 - Setelah halaman selesai dimuat, segera hentikan proses penangkapan paket (stop packet capture) pada Wireshark.
 3. Filtering: 
 * Masuk ke menu Analyze $\rightarrow$ Enabled Protocols, kemudian hilangkan tanda centang pada protokol IP, lalu klik OK. Langkah ini dilakukan untuk menyembunyikan paket lain yang tidak diperlukan agar analisis berfokus pada ARP.
-* Ketik kata kunci arp pada kolom display filter Wireshark, lalu tekan Enter untuk menampilkan aktivitas protokol ARP saja.
+* Ketik kata kunci arp pada kolom display filter Wireshark, lalu tekan Enter untuk menampilkan aktivitas protokol ARP saja.c
+![soal1](2.png)
+Berdasarkan hasil analisis paket pada image_26bfbc.png, protokol ARP bekerja melalui dua tahapan utama, yaitu *Request* (permintaan) dan *Reply* (jawaban). 
+
+Aktivitas pengamatan diawali pada paket nomor 114, di mana perangkat dengan IP `10.10.10.161` mengirimkan pesan *ARP Request* bermetode *Broadcast* (`Dst: Broadcast`) ke seluruh jaringan. Pesan tersebut bertujuan untuk mencari pemilik IP `10.10.10.27`. Pada detail struktur protokol ARP paket ini, nilai *Opcode* tercatat sebagai `request (1)` dengan *Target MAC address* yang masih bernilai kosong (`00:00:00_00:00:00`) karena alamat fisik target belum diketahui.
+
+Selanjutnya pada paket nomor 115, komputer target dengan IP `10.10.10.27` mengirimkan pesan *ARP Reply* secara *Unicast* langsung ke perangkat peminta. Pesan ini mengonfirmasi bahwa IP `10.10.10.27` berasosiasi dengan MAC Address `08:71:90:99:26:c7` (Intel_99:26:c7). Dengan demikian, kedua perangkat kini telah memperbarui tabel *ARP Cache* masing-masing dan siap melakukan komunikasi data.
