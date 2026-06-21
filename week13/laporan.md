@@ -26,7 +26,7 @@ ARP Caching (atau sering disebut ARP Table/ARP Cache) adalah sebuah mekanisme pe
 * Masuk ke menu Analyze $\rightarrow$ Enabled Protocols, kemudian hilangkan tanda centang pada protokol IP, lalu klik OK. Langkah ini dilakukan untuk menyembunyikan paket lain yang tidak diperlukan agar analisis berfokus pada ARP.
 * Ketik kata kunci arp pada kolom display filter Wireshark, lalu tekan Enter untuk menampilkan aktivitas protokol ARP saja.c
 ![soal1](2.png)
-Berdasarkan hasil analisis paket pada image_26bfbc.png, protokol ARP bekerja melalui dua tahapan utama, yaitu *Request* (permintaan) dan *Reply* (jawaban). 
+Berdasarkan hasil analisis paket pada gambar diatas, protokol ARP bekerja melalui dua tahapan utama, yaitu *Request* (permintaan) dan *Reply* (jawaban). 
 
 Aktivitas pengamatan diawali pada paket nomor 114, di mana perangkat dengan IP `10.10.10.161` mengirimkan pesan *ARP Request* bermetode *Broadcast* (`Dst: Broadcast`) ke seluruh jaringan. Pesan tersebut bertujuan untuk mencari pemilik IP `10.10.10.27`. Pada detail struktur protokol ARP paket ini, nilai *Opcode* tercatat sebagai `request (1)` dengan *Target MAC address* yang masih bernilai kosong (`00:00:00_00:00:00`) karena alamat fisik target belum diketahui.
 
